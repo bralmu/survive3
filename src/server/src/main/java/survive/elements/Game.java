@@ -2,12 +2,11 @@ package survive.elements;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.atomic.AtomicLong;
 
 public class Game {
-	public static final String SERVER_DOMAIN = "http://192.168.1.40";
+	public static final String SERVER_DOMAIN = "*";
 	/**
 	 * Must be a common divisor of sizeX and sizeY
 	 */
