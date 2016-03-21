@@ -18,6 +18,12 @@ public class ResponseController {
     }
     
     @CrossOrigin(origins = Game.SERVER_DOMAIN)
+    @RequestMapping("/gameupdate")
+    public GameUpdateResponse gameUpdate() {
+        return new GameUpdateResponse();
+    }
+    
+    @CrossOrigin(origins = Game.SERVER_DOMAIN)
     @RequestMapping("/move")
     public MoveResponse move(@RequestParam(value="uid") int uid, @RequestParam(value="targetx") float targetX, @RequestParam(value="targety") float targetY) {
     	Debugger.log("Moving "+uid+" to ("+targetX+", "+targetY+")");
