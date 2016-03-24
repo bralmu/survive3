@@ -17,12 +17,11 @@ public class Application {
 
     public static void main(String[] args) {
     	Debugger.enable();
-        GameGenerator.generateGame("/usr/share/nginx/html/survive3/mapamundipixel.png");
+        GameGenerator.generateGame("map.png");
         CellTeamCalculator.updateCellTeams();
         Timer timer = new Timer();
         timer.schedule(new GameUpdaterTask(), 5000l, (long)(1000/Game.UPDATES_PER_SECOND));
-    	SpringApplication.run(Application.class, args);
-        
+    	SpringApplication.run(Application.class, args);        
     }
     
 }
