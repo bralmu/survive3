@@ -1,0 +1,55 @@
+body {
+    margin: 0;
+}
+#daesh {
+    background-image: url('../images/daesh_flag.png');
+}
+#israel {
+    background-image: url('../images/israel_flag.png');
+}
+#usa {
+    background-image: url('../images/usa_flag.png');
+}
+#lgbt {
+    background-image: url('../images/lgbt_flag.png');
+}
+#eu {
+    background-image: url('../images/eu_flag.png');
+}
+#india {
+    background-image: url('../images/india_flag.png');
+}
+#russia {
+    background-image: url('../images/russia_flag.png');
+}
+#china {
+    background-image: url('../images/china_flag.png');
+}
+#brazil {
+    background-image: url('../images/brazil_flag.png');
+}
+.flag {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 180px 128px;
+    height: 142px;
+    border: 8px solid white;
+}
+.flag:hover {
+    cursor: pointer;
+    border: 8px solid black;
+}
+footer {
+    padding-top: 50px;
+    text-align: center;
+    font-size: small;
+}
+h1, h2, h3 {
+    text-align: center;
+}
+h3 {
+    min-height: 75px;
+}
+.info {
+    margin-top: 50px;
+}

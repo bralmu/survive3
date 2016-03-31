@@ -1,0 +1,91 @@
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="css/styles.css">
+<script type="text/javascript" src="js/jquery-1.12.1.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<script type="text/javascript" src="js/pixi.min.js"></script>
+<script type="text/javascript" src="js/scripts.js"></script>
+<title>Survive3</title>
+</head>
+<body>
+<div class="container" id="menu">
+    <div class="jumbotron"><h1>Survive3</h1></div>
+    <h2>Select your team:</h2>
+    <h3></h3>
+    <div>
+        <div class="row">
+            <div class="col-xs-4 flag" id="brazil"></div>
+            <div class="col-xs-4 flag" id="china"></div>
+            <div class="col-xs-4 flag" id="daesh"></div>
+        </div>
+        <div class="row">            
+            <div class="col-xs-4 flag" id="eu"></div>
+            <div class="col-xs-4 flag" id="india"></div>
+            <div class="col-xs-4 flag" id="israel"></div>
+        </div>
+        <div class="row">            
+            <div class="col-xs-4 flag" id="lgbt"></div>
+            <div class="col-xs-4 flag" id="russia"></div>
+            <div class="col-xs-4 flag" id="usa"></div>
+        </div>
+    </div>
+    <div class="info">
+        <p><strong>Rules:</strong> Terrain belongs to the closest player. Inactive players will be kicked automatically.</p>
+        <p><strong>Controls:</strong> Mouse click or touch to move. Mouse wheel to zoom in and out.</p>
+        <p><strong>System requirements:</strong> Firefox/Chromium with WebGL support. Geforce 8400 or faster. Celeron J1800 or faster.</p>
+    </div>
+    <footer><p>Survivor3 is a little experiment using HTML5, jQuery, pixiJS, Java and Spring. The source code is available <a href="https://github.com/bralmu/survive3">here</a>.</p></footer>
+</div>
+<script>
+// Team selection
+$('#daesh').mouseenter(function() {
+    $('h3').html("ISIS/DAESH<br>Ad-Dawlah al-Islāmiyah fī 'l-ʿIrāq wa-sh-Shām.");
+    });
+$('#israel').mouseenter(function() {
+    $('h3').html("ISRAEL<br>Yisrā'el.");
+    });
+$('#usa').mouseenter(function() {
+    $('h3').html("USA<br>United States of America.");
+    });
+$('#lgbt').mouseenter(function() {
+    $('h3').html("LGBT<br>Lesbians, gays, bisexuals, and transgenders.");
+    });
+$('#brazil').mouseenter(function() {
+    $('h3').html("BRAZIL<br>República Federativa do Brasil.");
+    });
+$('#china').mouseenter(function() {
+    $('h3').html("CHINA<br>中华人民共和国");
+    });
+$('#eu').mouseenter(function() {
+    $('h3').html("EU<br>European Union.");
+    });
+$('#india').mouseenter(function() {
+    $('h3').html("INDIA<br>Bhārat Gaṇarājya.");
+    });
+$('#russia').mouseenter(function() {
+    $('h3').html("RUSSIA<br>Российская Федерация.");
+    });
+$('.flag').mouseleave(function() {
+    $('h3').html("");
+});
+$('#daesh').click(function() {joingame("daesh");});
+$('#israel').click(function() {joingame("israel")});
+$('#usa').click(function() {joingame("usa")});
+$('#lgbt').click(function() {joingame("lgbt")});
+$('#russia').click(function() {joingame("russia");});
+$('#india').click(function() {joingame("india")});
+$('#eu').click(function() {joingame("eu")});
+$('#china').click(function() {joingame("china")});
+$('#brazil').click(function() {joingame("brazil")});
+
+function joingame(teamName) {
+    $('#menu').hide();
+    $.getJSON(SERVER_HOST+"/join", {teamname: teamName}, function(answer) {
+        myUID = answer.uid;
+        starter2();
+    });
+}
+</script>
+</body>
+</html>
